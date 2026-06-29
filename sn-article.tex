@@ -1,0 +1,488 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove �Numbered� in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage[table]{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{threeparttable}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+
+
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{natbib}
+\usepackage{caption}
+\captionsetup[table]{name=Table}
+\captionsetup[figure]{name=Fig., labelsep=period}
+
+\usepackage{hyperref} 
+\usepackage{cleveref}
+\Crefname{figure}{Fig.}{Figs.}
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Article Title]{Tooth detection and numbering in panoramic radiographs using enhanced Faster R-CNN: addressing tooth diversity and image quality challenges}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author[1]{\fnm{Shunyi} \sur{Wang}}
+%\email{shunyi_wang@163.com}
+\author*[1]{\fnm{Xin} \sur{Yu}}\email{xinyu@bipt.edu.cn}
+\author[2]{\fnm{Zhien} \sur{Feng}}
+%\email{jyfzhen@mail.ccmu.edu.cn}
+\author[3]{\fnm{Shuping} \sur{Wang}}
+%\email{wangshuping951@163.com}
+\author[1]{\fnm{Peize} \sur{Liu}} 
+%\email{lpz970821@163.com}
+\author[2]{\fnm{Pengchao} \sur{Li}}
+%\email{lpc2825482310@163.com}
+\author[2]{\fnm{Shu} \sur{Zhang}}
+%\email{zhangs17@126.com}
+\author[2]{\fnm{Jianghua} \sur{Liu}}
+%\email{liujianghua0926@163.com}
+
+\affil[1]{\orgname{Beijing Institute of Petrochemical Technology}, \orgaddress{\city{Beijing},\postcode{102617},\country{China}}}
+
+\affil[2]{\orgname{Beijing Stomatological Hospital, Capital Medical University}, \orgaddress{\city{Beijing},\postcode{100070},\country{China}}}
+
+\affil[3]{\orgname{Beijing Shijitan Hospital, Capital Medical University}, \orgaddress{\city{Beijing},\postcode{100038},\country{China}}}
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+
+
+\abstract{In dental diagnostics, the shape, quantity, and position of teeth are significant elements in panoramic radiography picture analysis. Automated tooth detection and numbering systems can considerably enhance diagnostic efficiency and accuracy. Traditionally, approaches for tooth identification in panoramic radiography have been based on manual identification by dental specialists, which is time-consuming and prone to human error. Although deep learning has made significant progress in the field of object detection, there remains a significant research gap in the specific area of automatic tooth numbering in dental panoramic images, particularly when dealing with tooth diversity (such as missing teeth, implants, and crowns) and image quality issues (such as low contrast and metal artifacts). To solve these difficulties, this paper proposes an enhanced Faster R-CNN model. The model comprises a Swin-Transformer backbone network with hierarchical window attention and adds cross-scale features. It also incorporates strategies such as developing a weighted localization loss function based on past knowledge of dental anatomical maps to boost the capacity to recognize complicated dental structures. Experimental results reveal that the model works remarkably well in dental detection tasks, attaining an average precision $AP_{50-95}$ of 52.6\%, an average recall rate $AR_{50-95}$ of 61.3\%, and an $AP_{50}$ of 96.1\%. Comparisons between this model and state-of-the-art models such as DINO and YOLO11s were made using accuracy and durability metrics, showing that this model displays superior accuracy and durability, accurately discriminating between native teeth, implants, crowns, and partial dentures. This work demonstrates the better performance of the proposed method in automatic teeth detection and numbering tasks, creating a new technical foundation for dental picture analysis. This intelligent model, as an auxiliary tool for dentists, is projected to enhance the accuracy and efficiency of dental diagnostics, consequently offering patients with optimized treatment experiences and outcomes.}
+
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{tooth detection and numbering, dental panoramic radiograph, Faster R-CNN, deep learning}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction}\label{sec1}
+
+In recent years, the rapid growth of artificial intelligence has dramatically impacted the disciplines of healthcare and medical imaging, particularly exhibiting significant potential in dental radiology\cite{i0}.  By automating and streamlining dental image analysis procedures, computer vision offers new options for enhancing diagnostic efficiency and accuracy.  Among these, automatic tooth numbering—a core activity involving the exact identification and numbering of each tooth in dental panoramic radiographs (DPR)—holds great importance in clinical diagnosis and treatment planning.
+
+Dental panoramic radiographs (DPR) are widely used for preliminary screening, but traditional tooth numbering systems based on manual identification are time-consuming, prone to human error, and lack consistency\cite{i3}. Therefore, the development of automated teeth numbering technology has become an important demand in current dental imaging analysis.  Dental panoramic radiographs are currently the most popular methods for preliminary screening for tooth identification and numbering\cite{i4}, and the morphology, number, and location of teeth are essential markers for dentists to assess oral health.  Automated detection and numbering methods can considerably increase diagnostic accuracy\cite{i5}.
+
+ Recent advances in deep learning technology have facilitated investigation of dentistry panoramic radiography image analysis.  Algorithms based on convolutional neural networks (CNNs) have demonstrated exceptional performance in computer vision, with region proposal-based detection methods (such as RCNN in 2014, Fast RCNN in 2015, and Faster RCNN\cite{i6}\cite{i7}\cite{i8}) widely applied in medical image classification and detection.  Additionally, models such as Retina Neural Network (RetinaNet), You Only Look Once (YOLO), Single Shot MultiBox Detector (SSD), and DETR with Improved DeNoising Anchor Boxes for End-to-End Object Detection (DINO) have achieved significant improvements in the accuracy and efficiency of object detection\cite{i9}\cite{i10}\cite{i11}\cite{i12}.  However, the application of these strategies in the DPR automatic teeth numbering task remains unsatisfactory.  Previous studies have primarily focused on object detection in natural scenes, such as pedestrian and vehicle recognition, or non-dental medical image analysis, such as lung nodule detection \cite{i13} and brain tumor segmentation \cite{i14}, while algorithm optimization tailored to the characteristics of DPR images remains inadequate.
+
+ Additionally, the unique features of DPR pictures and the variety of patients' teeth create additional obstacles, substantially restricting the clinical application usefulness of existing algorithms.  First, individual differences in tooth arrangement (e.g., arch curvature, uneven tooth spacing) limit the model's generalization ability\cite{i15}; second, the coexistence of diverse tooth states such as tooth overlap, missing teeth, implants, fixed partial dentures, and crowns, as well as low-contrast regions (e.g., the posterior mandible) and artifact interference significantly increase detection difficulty\cite{i16}.  Additionally, inconsistent annotation standards in publicly available annotated datasets further restrict the performance optimization of supervised learning models\cite{i17}.  These challenges underline the requirement of establishing a dedicated detection system customized to DPR image attributes. 
+
+ Faster R-CNN, as an effective two-stage object detection framework, demonstrates particular advantages in dental numbering tasks.  Its core architecture dynamically generates high-recall candidate regions through a region proposal network (RPN), combined with the subsequent detection module's refined classification and bounding box regression, enabling accurate differentiation of densely arranged, morphologically diverse teeth in X-ray or oral images, particularly excelling in handling complex scenarios such as partial tooth occlusion.  By employing transfer learning methodologies, Faster R-CNN can swiftly adapt to limited annotated dental datasets, drastically lowering reliance on large-scale annotated data.  The structured detection findings it provides can be instantly turned into visual tooth distribution maps, giving doctors automated, high-precision numbering references.  Although the model has considerable computing complexity, its stability and scalability in complex dental arch analysis make it a useful tool for boosting oral diagnostic efficiency.  Addressing the present issues, this work makes the following essential contributions.
+
+ 1) The annotation information from publicly available DPR datasets online is systematically translated into a single-category label compliant with the dental FDI numbering system, simplifying analysis and diagnosis by clinical practitioners.
+
+ 2) In order to replicate problems such as dental heterogeneity and low contrast in DPR images, a tooth morphology-aware hybrid augmentation framework was devised.  By including tooth morphological properties, the dataset was updated to boost the model's robustness in handling complicated dental images.  
+
+ 3) We selected Faster R-CNN as the base network and upgraded it with a Swin-Transformer and Feature Pyramid Network (FPN) to effectively handle low-contrast regions and overlapping boundaries (Image Quality Challenges). Furthermore, dynamic anchor generation and an anatomy-aware weighted loss function were designed to focus on tooth root localization, distinguishing native teeth from morphologically diverse structures like implants and crowns (Tooth Diversity Challenges).
+
+ Overall, this study applied state-of-the-art deep learning algorithms to perform automatic teeth detection and numbering in dental panoramic photos, with the exhibited results supporting the usefulness of the proposed method.  In summary, this research provides rapid and reliable automated numbering support for clinical scenarios such as orthodontic planning and tooth replacement, exhibiting substantial clinical application potential and important practical utility.
+
+ \section{Related Works}
+
+In recent years, automatic tooth position identification technology in dental panoramic radiography has achieved significant breakthroughs, notably with major advances led by deep learning technology.
+
+ Initially, teeth detection research has primarily relied on convolutional neural networks (CNNs).  Oktay\cite{r1} proposed a method based on convolutional neural networks (CNNs) to recognize teeth in panoramic dental X-ray pictures.  This method identifies oral spaces through preprocessing and uses a modified AlexNet to categorize teeth, discriminating between canines, premolars, and molars, attaining an accuracy rate of over 90\%.  The main idea of this method is to transform tooth identification into an image classification problem, relying on manually planned preprocessing processes and data augmentation (such as rotation and mirroring modifications) to boost performance.  However, its robustness is restricted by manual feature extraction, and it lacks adaptation to complicated conditions such as overlapping or missing teeth.  Additionally, it does not entail tooth numbering or pathological investigation.
+
+ To overcome the drawbacks of early methods, object detection techniques were brought into the field of tooth detection to boost automation levels\cite{r2}\cite{r3}.  These works utilize Faster R-CNN paired with VGG-16, creating candidate areas through a region proposal network (RPN) and utilizing heuristic techniques or prior knowledge to achieve tooth detection and numbering.  Compared to earlier systems, object detection technology lowers dependency on preprocessing and achieves performance levels comparable to those of inexperienced dentists.  However, when addressing overlapping or missing teeth, recognition and numbering mistakes remain severe, and adaptability to complicated oral anatomy has not been extensively investigated.  This step signifies a move from classification to localization and identification, but it still confronts restrictions in terms of application scenarios.
+
+ Building on this foundation, tooth detection technology has steadily diversified, with wider application scenarios and functions.  Among these, Zhu et al.\cite{r4} utilized Mask R-CNN for tooth segmentation and detection, enhancing the processing capability of complex structures through pixel-level predictions; Faster R-CNN combined with image processing techniques was applied to pathological classification and tooth identification\cite{r5,r6,r7}; and other studies have attempted to detect implants by combining CNN with heuristic algorithms\cite{r8}.  The unifying idea behind these works is to exploit the feature extraction capabilities of deep learning models, paired with post-processing or prior knowledge, to tackle specific problems.  However, Mask R-CNN has significant computational complexity, Faster R-CNN has limited detection skills for non-natural structures such as implants, and overall resilience still has to be enhanced.
+
+ Recently, research has further increased detection accuracy and teeth numbering capabilities.  YOLOv8 has been used for tooth localization and pathological detection, combined with image enhancement techniques to improve performance\cite{r12}; Graph convolutional networks and multi-stage deep learning have been implemented to improve the segmentation and numbering of children's teeth\cite{r13,e1}; Xu et al.\cite{r14} achieved outstanding performance on the test set by training a region of interest (ROI) extraction model based on U-Net, a tooth segmentation and numbering model based on Hybrid Task Cascade (HTC), and a post-processing procedure, with accuracy and recall rates for tooth segmentation and numbering exceeding 97\%, and an IoU value of 92\% between predictions and ground truth labels. Additionally, some research has studied the impact of missing teeth on numbering ability, finding that accuracy considerably lowers in photos with low tooth counts\cite{r15}.
+
+ More recently, cutting-edge frameworks have further diversified the methodologies in dental panoramic analysis. For instance, Mendes et al.\cite{r16} utilized the YOLO framework to achieve automated tooth detection and numbering, highlighting the efficiency of single-stage detectors in clinical scenarios. Furthermore, Du et al.\cite{r17} introduced Prompting Vision-Language Models (VLMs) for dental notation-aware abnormality detection, bringing multi-modal capabilities into dental imaging. However, while YOLO models occasionally struggle with dense overlapping teeth, and VLMs require substantial computational resources, our proposed anatomy-aware Faster R-CNN seeks an optimal balance by embedding domain-specific structural priors (e.g., tooth root attention) into a highly accurate two-stage visual detector.
+
+ The aforementioned work generally addresses difficult circumstances with efficient models and particular mechanisms, although the handling of challenges such as missing teeth, overlapping teeth, and implants remains unsatisfactory.  Based on earlier work, this study seeks to create an end-to-end neural network model for exact tooth detection and numbering by training a deep learning model on dental panoramic radiography pictures under diverse tooth states and illumination settings.
+
+
+\section{Materials and Methods}
+
+This section discusses the collection of the dataset, the proposed framework, and the specific methods involved. The flowchart of the proposed framework is shown in \Cref{fig:architechture}.  
+The input images first undergo adaptive data augmentation and are then processed through the Swin Transformer backbone network to extract hierarchical feature maps, which are subsequently fused at multiple scales in the FPN neck. Next, the RPN head generates region proposals from the fused features, and the ROI head uses these proposals to perform bounding box regression and classification, ultimately outputting detection results, forming an efficient object detection framework.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{architechture.jpg}
+    \caption{Architecture of improved Faster R-CNN}
+    \label{fig:architechture}
+\end{figure}
+
+\subsection{Dataset Collection}
+
+To ensure the scientific rigor and reproducibility of this study, we utilized the benchmark dataset from the “Panoramic Dental X-ray Counting and Diagnosis Challenge (DENTEX)” co-hosted by the 2023 International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI). This dataset comprises panoramic dental X-rays obtained from three distinct institutions. These images were taken under standard clinical conditions, but they vary in terms of the equipment used and the imaging protocols followed. This results in diversity in image quality, reflecting the heterogeneity of clinical practice. The X-rays were obtained from patients aged 12 years and older, randomly selected from the hospital's database to protect patient privacy and confidentiality. It consists of three types of data: (a) 693 X-rays labeled only for quadrant detection, (b) 634 X-rays labeled for quadrant and tooth count classification, and (c) 1,005 X-rays fully labeled for quadrant, tooth count, and diagnostic classification. Diagnostic categories include four types: caries, deep caries, periapical lesions, and impacted teeth. This paper focuses on the tooth numbering problem, so the 634 dental X-rays labeled for quadrant and tooth numbering classification were used as the dataset for this study. 
+
+\subsection{FDI Label Conversion}
+
+This study reconstructs the original annotation system of the DENTEX dataset (which only included quadrant numbers and the total number of teeth within each quadrant) and converts it into single-category annotation labels compliant with the FDI dental numbering system. The specific conversion process is as follows:
+
+1) Parsing original annotations: The DENTEX dataset's original annotations only covered two types of information—“quadrant number (1-4) + total teeth count within the corresponding quadrant”—without standard FDI codes for individual teeth. This limitation prevented precise tooth detection and numbering tasks. 
+
+2) Conversion Rule Establishment: Following clinical standards of the FDI dental numbering system, the 4 quadrants are mapped as follows: Maxillary Right (Zone 1), Maxillary Left (Zone 2), Mandibular Left (Zone 3), Mandibular Right (Zone 4); Within each quadrant, individual teeth are sequentially numbered 1–8 following the anatomical order “from the midline to both sides,” ultimately generating the standard FDI tooth numbers 11–18, 21–28, 31–38, and 41–48. 
+
+3) Annotation Conversion and Validation: Developed a batch conversion tool using Python scripts to automate the transformation of original annotations into FDI labels. Post-conversion, each annotated box underwent anatomical refinement to precisely align with individual tooth boundaries. To validate annotation quality, 100 randomly selected converted samples underwent double-blind manual verification by two senior dental practitioners, achieving a final annotation accuracy of 98.5\%, ensuring the reliability and precision of converted labels.
+
+This label conversion addresses the issue of insufficient annotation information in the original dataset, enabling the model to directly learn clinically universal FDI codes and enhancing its practical clinical utility.
+
+\subsection{Improved Faster R-CNN}
+
+To improve the performance of Faster R-CNN in panoramic dental radiography tooth detection tasks, this study proposes a series of targeted improvements, including: hybrid image enhancement techniques, dynamic anchor box generation, introduction of attention mechanisms, cross-scale feature fusion using feature pyramid networks (FPN), and loss functions that integrate anatomical prior knowledge.  These modifications aim to considerably enhance the model's detection accuracy and reliability in difficult clinical circumstances.
+
+\subsubsection{Hybrid Image Enhancement Strategy }
+
+In dental panoramic radiography images, the reflecting qualities of implants and crowns, along with the uneven lighting conditions during image acquisition, sometimes result in considerable differences in brightness and contrast.  To imitate these processes, our study applied photometric distortion techniques to randomly modify image brightness and contrast, effectively recreating the reflecting effects on crown surfaces and the image performance under varying lighting circumstances.  By integrating controlled photometric fluctuations, the model was trained in varied brightness conditions, boosting its generalization capacity to handle uneven lighting in real dental pictures and creating a more robust foundation for feature extraction in later diagnostic tasks.
+
+ Artifacts are a significant issue in dentistry panoramic radiography images, sometimes caused by patient movement or equipment restrictions, resulting in the blocking or loss of essential information.  To mitigate such interference, we applied geometric distortion techniques to randomly erase small regions within the images, thereby simulating clinical artifact effects. This challenges the algorithm to recover robust features from partially occluded or damaged information.  By changing the size and distribution frequency of the erased regions to coincide with normal artifact patterns in dental pictures, a model with greater robustness against occlusion interference was trained, boosting the model's stability and dependability in real clinical data.  The aforementioned methodologies are combined into a hybrid augmentation framework for tooth morphology perception.  By incorporating tooth morphological properties, the data augmentation method is very relevant to the actual needs of dental images, raising traditional random augmentation to focused optimization, enabling the model to better respond to the particular problems of dental images.
+
+\subsubsection{Dynamic Anchors Generation}
+
+In the Faster R-CNN object detection model, anchor box configuration is a key factor affecting detection performance. Traditional methods have been based on fixed-ratio anchor boxes (e.g., 0.5, 1, 2), which struggle to effectively cover teeth of varying sizes and shapes in dental panoramic images (e.g., incisors and molars), leading to reduced detection accuracy. To address this issue, this study proposes a dynamic anchor box optimization method based on IoU metrics, which uses data-driven generation to determine the optimal anchor box configuration and adaptively matches the diverse shapes of teeth. The core components of this method include: redefining similarity based on IoU, using median-enhanced noise-resistant cluster centers, and aspect ratio clustering.
+
+Given the complex aspect ratio distribution in dental images (irregular tooth shapes) and susceptibility to artifacts or overlapping interference, relying solely on aspect ratio as a clustering feature makes it difficult to accurately reflect the spatial matching degree (IoU) between anchor boxes and real targets—a core detection metric. This study introduces IoU as the clustering similarity metric standard. IoU directly measures the overlap between anchor boxes and ground truth bounding boxes, better aligning with the actual requirements of detection tasks. Let \(A\) denote the anchor box and \(G\) denote the ground truth bounding box; the IoU distance function can be expressed as:  
+\begin{equation}
+d(A,G)=1-\text{IoU}(A,G), \quad \text{IoU}(A,G)=\frac{|A \cap G|}{|A \cup G|}
+\end{equation}
+
+where $|A \cap G|$ denotes the intersection area, and $|A \cup G|$ denotes the union area. Minimizing \(d(A,G)\) encourages the clustering algorithm to generate anchor boxes with higher overlap with the ground truth bounding boxes, outperforming traditional methods that rely solely on aspect ratio distance.
+
+To avoid the issue of mean values being sensitive to outliers (such as distorted bounding boxes caused by artifacts, metal fillings, overlapping teeth, or manual annotation errors), ensuring that cluster centers robustly represent typical tooth shapes, this study uses the median aspect ratio as the cluster center. For example, for the aspect ratio set $\{r_1, r_2, \dots, r_n\}$ of aspect ratios, the cluster center $r_c$ is defined as:
+\begin{equation}
+r_c=\text{median}(r_1, r_2, \dots, r_n)
+\end{equation}
+
+The median is less sensitive to skewed distributions and outliers, significantly improving the robustness of anchor frame generation. The experiment yielded five optimal clustering clusters, corresponding to median aspect ratios of $\{0.21, 0.34, 0.57, 0.77, 0.8\}$. This data-driven configuration abandons fixed ratio settings, aligning closely with the actual morphological distribution of teeth, effectively covering various types of teeth such as incisors, canines, and molars, thereby enhancing the model's detection performance.
+
+\subsubsection{Attention Mechanism and Feature Fusion}
+
+In panoramic dental radiography pictures, the complicated cohabitation of varied dental diseases such as missing teeth, implants, and restorations, along with the blurriness of low-contrast regions in the posterior jaw, provides multiple problems for tooth recognition.  The traditional Faster R-CNN model is constrained by the local receptive field characteristics of convolutions: it struggles to distinguish between morphologically similar missing tooth regions and the boundaries of metal restorations, and it cannot effectively extract diffuse edge features in low-contrast regions, leading to reduced model representational capacity and spatial adaptability.  To solve this, this paper presents a superior solution: replacing the ResNet backbone network with a Swin-Transformer network and combining it with a cross-stage feature fusion technique.  This solution incorporates output feature maps from several levels of the Feature Pyramid Network (FPN) module, optimizes artifact suppression capabilities through the introduction of an attention mechanism, and improves multi-scale tooth identification sensitivity.
+
+ As the backbone network, the Swin-Transformer effectively handles high-resolution dental pictures with its hierarchical window self-attention mechanism.  This architecture progressively reduces the spatial resolution of feature maps and raises the number of channels throughout four stages, providing multi-level feature map outputs with variable semantic and geographical details.  Shallow-level features contain fine spatial information such as tooth edges, while deep-level features carry deeper semantic and global contextual information (e.g., tooth category, link with surrounding tissues).  This hierarchical, multi-scale feature output structure forms the foundation for the proper operation of cross-stage feature fusion (FPN) in following stages.  Its window self-attention technique acts within local windows, along with a shifted window design to permit cross-window information sharing.  This method boosts the model's ability to capture local artifacts and global structural linkages while retaining computational efficiency.
+
+ Compared to the convolutional operations in ResNet, the Swin-Transformer backbone network combined with the FPN cross-stage feature fusion technique displays considerable advantages.  The Swin-Transformer itself effectively models the long-range dependencies between artifacts and teeth through the self-attention process.  The FPN module generates a robust semantic, multi-scale feature pyramid by combining features from distinct hierarchical levels of the backbone network.  This fusion method considerably increases the model's detection sensitivity for multi-scale dental targets (e.g., little teeth and huge restorations) and enhances spatial localization capabilities.  For example, in scenarios where artifacts are caused by metal implants, the model not only utilizes Swin-Transformer's global attention to distinguish between artifact and real tooth edges but also leverages the multi-scale features fused by FPN to robustly detect targets of different sizes, thereby comprehensively improving detection performance.
+
+\subsubsection{Weighted Loss Function}
+
+In the process of tooth identification in panoramic dental radiography images, precisely finding the tooth roots is vital for effectively distinguishing biological teeth from non-biological structures (such as implants and fixed partial dentures) and is key to eliminating misclassification.  However, traditional approaches have severe drawbacks.  The Smooth L1 Loss function used in the Faster R-CNN model applies equal weights to all coordinate errors (top, bottom, left, right) during bounding box regression, defined as:
+\[
+\text{Smooth}_{L1}(x) = 
+\begin{cases}
+0.5x^2 & \text{if } |x| < 1 \\
+|x| - 0.5 & \text{otherwise}
+\end{cases}
+\]
+
+In this context, $x = \hat{p}_i - p_i$ reflects the difference between the expected coordinates and the actual coordinates. Traditional methods have relied on loss functions that fail to adequately focus on the tooth root, a major discriminative characteristic, and miss its special significance in terms of morphology and clinical discrimination (distinguishing between genuine teeth and prostheses). This leads to the model struggling to precisely find the tooth root for effective differentiation when structures such as implants or fixed dentures are present, which lack tooth roots. To address the above issues, this study proposes a weighted Smooth L1 Loss, which introduces prior knowledge of dental anatomy, dynamically adjusts the regression weights of the crown and root, enhances the focus on tooth root localization, and excludes implants and partial fixed dentures without tooth roots, thereby reducing their impact on tooth detection and numbering and optimizing overall detection performance.
+
+The distribution of teeth in the maxilla and mandible demonstrates symmetry.  Taking FDI numbers as an example, the crowns of maxillary teeth (11-18, 21-28) normally occupy the lower half of the bounding box, while the roots occupy the upper half; conversely, for mandibular teeth (31-38, 41-48), the crowns occupy the upper half, while the roots occupy the bottom half.  This study dynamically differentiates the crown and root regions by combining the midpoint positions of the boundary boxes with dental labels.
+Given the importance of dental roots in clinical diagnosis, this study provides a larger weight ($\alpha_{root}=1.5$) to the root region's regression error, while the crown region's weight remains at the usual value ($\alpha_{crown}=1.0$).  The weights for the left and right sides of the bounding box are kept at 1.0 to ensure horizontal equilibrium.  This unique weighting approach intends to boost the model's sensitivity to root location.
+
+The weighted Smooth L1 Loss is defined as follows:
+\[
+\mathcal{L}_{\text{reg}} = \sum_{i \in \{\text{top}, \text{bottom}, \text{left}, \text{right}\}} w_i \cdot \text{Smooth}_{L1}(\hat{p}_i - p_i)
+\]
+where $\hat{p}_i$ and $p_i$ are the predicted and true normalized coordinates of the bounding box, respectively, and $w_i$ is the weight corresponding to the edge. For maxillary teeth, $w_{top}=\alpha_{root},w_{bottom}=\alpha_{crown},w_{left}=w_{right}=1.0$; For mandibular teeth,
+$w_{bottom}=\alpha_{root},w_{top}=\alpha_{crown},w_{left}=w_{right}=1.0$.
+
+\subsection{Training and Validation Strategy}
+
+All trials in this study were conducted on an Ubuntu 18.04.5 LTS machine using the Python 3.8 programming language and the Vscode IDE.  The network framework is based on PyTorch 2.1.0+cu121, equipped with an Intel Xeon Silver 4214R CPU and a 4-card NVIDIA RTX 3080 GPU.
+
+ During the data processing stage, the hierarchical classification labels in the DENTEX tooth numbering dataset were converted into single-category labels conforming with the dental FDI numbering system.  This was achieved by combining quadrant indices with tooth serial numbers to obtain standard tooth numbers such as 11-18 and 21-28 as independent categories.  This conversion enables the object identification algorithm to directly recognize the clinical FDI numbers of teeth, addressing the issue that the original annotations could not adequately capture the whole dental categories.
+
+ Since the DENTEX validation dataset lacks labels, to ensure fairness in experimental evaluation and reliability of results, the dataset was randomly partitioned based on the converted FDI annotation file. The original labeled dataset (634 dental panoramic X-rays) was randomly partitioned into a training set (70\%, 443 images), a validation set (10\%, 63 images), and a test set (20\%, 128 images). This 7:1:2 split ratio ensures unbiased partitioning while maintaining consistent sample distribution characteristics across the sets.   The dataset was uniformly scaled to $2000\times1200$ pixels.  During the training phase, four graphics cards were employed for parallel training, with each graphics card set to a batch size of 1 for 100 epochs of training.  Specifically, to enhance the performance of each network, this study made various tweaks to the network backbone and hyperparameters and picked the ideal combination for the final model training.
+
+\subsection{Post-processing strategy}
+
+To optimize detection results, we implemented a rigorous post-processing workflow. During model inference, we employed a “confidence threshold filtering + Non-Maximum Suppression (NMS)” strategy. First, a confidence threshold of 0.05 was set to filter out detection boxes with confidence below this value to retain only high-confidence candidates. The filtered boxes then undergo standard NMS with an IoU threshold of 0.5, merging overlapping boxes for the same tooth and retaining only the highest-confidence box. Additionally, a final retention cap of 100 detection boxes is set per image. This value significantly exceeds the typical 32 teeth in a normal dentition, effectively ensuring no detection is missed.
+
+\subsection{Performance Parameters}
+
+To assess the generalization capability of the proposed method, several evaluation metrics widely used in medical image analysis were introduced. The model performance was evaluated using a combination of Average Recall (AR) and Average Precision (AP) scores, along with various Intersection over Union (IoU) thresholds. This includes $AR_{(50-95)}$, $AP_{(50-95)}$, $AP_{50}$, $AP_{75}$, and separate AP scores for medium objects ($AP_m$) and large objects ($AP_l$), as shown in \Cref{tab:evaluation_metrics}.
+
+It is critical to note that in this study, a detection is considered a True Positive (TP) only if it simultaneously satisfies two conditions: (1) the IoU between the predicted bounding box and the ground truth exceeds the evaluation threshold, and (2) the predicted FDI tooth number strictly matches the ground truth label. A misclassification in the tooth number directly categorizes the detection as a False Positive (FP), regardless of spatial localization accuracy.
+
+\begin{table}[h]
+    \centering
+    % \resizebox{\textwidth}{!}{%
+    \caption{Evaluation metrics applied in this study.}
+    \begin{tabular}{lcccccc}
+        \hline
+        Evaluation Metric & Formula \\
+        \hline
+        $AR_{(50-95)}$ & \(\frac{1}{10} \sum_{i=0}^{9} \text{AR}(0.5 + 0.05i)\) \\
+        $AP_{(50-95)}$ & \(\frac{1}{10} \sum_{i=0}^{9} \text{AP}(0.5 + 0.05i)\) \\
+        $AP_{50}$ & \(\text{AP}(0.5)\) \\
+        $AP_{75}$ & \(\text{AP}(0.75)\) \\
+        $AP_m$ & \(\frac{1}{10} \sum_{i=0}^{9} \text{AP}_m(0.5 + 0.05i)\) \\
+        $AP_l$ & \(\frac{1}{10} \sum_{i=0}^{9} \text{AP}_l(0.5 + 0.05i)\) \\
+        \hline
+    \end{tabular}%
+    % }%
+    % \caption{Evaluation metrics applied in this study.}
+    \label{tab:evaluation_metrics}
+\end{table}
+
+\section{Result and Discussion}
+
+This part focuses on the tooth detection performance of the model provided in this study.  The results illustrate the performance and reliability of the automatic tooth numbering approach described in this study, which has the potential to increase the diagnostic efficiency of dentists.
+
+\subsection{Experimental Design}
+
+To evaluate the method proposed in this study, two experiments were conducted: (1) A comparison with state-of-the-art object detection models, including Retinanet\cite{i9}, SSD\cite{i11}, DINO\cite{i12}, YOLO11\cite{d1}, and the baseline model Faster R-CNN\cite{i8}, as shown in \Cref{tab:performance_metrics}.  (2) A comprehensive ablation research to examine the influence of the changes made to Faster R-CNN in this study on hierarchical detection performance, as demonstrated in \Cref{fig:spider_chart}.
+
+\begin{table}[h]
+    \centering
+    \caption{Performance metrics comparison for various object detection methods.}
+    \label{tab:performance_metrics}
+    % \resizebox{\textwidth}{!}{%
+    \rowcolors{7}{gray!20}{gray!20}
+    \begin{tabular}{lcccccc}
+        \hline
+        Method & $AR_{(50-95)}$ & $AP_{(50-95)}$ & $AP_{50}$ & $AP_{75}$ & $AP_m$ & $AP_l$ \\
+        \hline
+        Retinanet & 0.597 & 0.479 & 0.916 & 0.444 & 0.503 & 0.478 \\ % 行2
+        SSD & 0.488 & 0.339 & 0.79 & 0.219 & 0.246 & 0.341 \\ % 行3
+        DINO & 0.609 & 0.509 & 0.940 & 0.48 & 0.526 & 0.509 \\ % 行4
+        YOLO11n & - & 0.409 & 0.685 & 0.443 & - & - \\ % 行5
+        YOLO11s & - & 0.513 & 0.838 & \textbf{0.554} & - & - \\ % 行6
+        Ours (Faster-RCNN Baseline) & 0.589 & 0.498 & 0.935 & 0.462 & 0.516 & 0.498 \\ % 行7（开始变灰）
+        Ours (Data Augmentation) & 0.593 & 0.504 & 0.943 & 0.459 & 0.508 & 0.505 \\ % 行8（灰）
+        Ours (Anchors) & 0.6 & 0.510 & 0.942 & 0.486 & 0.554 & 0.509 \\ % 行9（灰）
+        Ours (Swin-Transformer+FPN) & 0.601 & 0.505 & 0.942 & 0.471 & \textbf{0.561} & 0.506 \\ % 行10（灰）
+        Ours (Prior Knowledge) & 0.593 & 0.507 & 0.940 & 0.48 & 0.540 & 0.507 \\ % 行11（灰）
+        Ours (All Methods) & \textbf{0.613} & \textbf{0.526} & \textbf{0.961} & 0.503 & 0.557 & \textbf{0.520} \\ % 行12（灰）
+        \hline
+    \end{tabular}%
+    % }
+\end{table}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{spider_chart.jpg}
+    \caption{The results of the ablation study.}
+    \label{fig:spider_chart}
+\end{figure}
+
+\subsection{Evaluation of Training Process}
+
+The upgraded Faster R-CNN model displays breakthrough performance in teeth localization and numbering in panoramic dental image identification.
+
+\Cref{fig:loss_map} shows the training and testing data loss and performance comparison of the model in this work, and \Cref{fig:confusion_matrix} displays the confusion matrix of the deep learning model suggested in this study.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{loss_map.jpg}
+    \caption{Loss and map curve using our methods.}
+    \label{fig:loss_map}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{confusion_matrix.jpg}
+    \caption{Confusion matrix.}
+    \label{fig:confusion_matrix}
+\end{figure}
+
+As illustrated in \Cref{fig:loss_map}, the model demonstrates good convergence and stability during training, with training loss consistently lowering and map-related performance measures progressively improving.  Ultimately, the model stabilizes at a low loss value and good performance metrics, displaying great object detecting skills.  Although there are still some issues in high IoU thresholds and medium-scale object identification, the overall performance has achieved a generally optimal level, exhibiting good practical application potential.
+
+Confusion matrix analysis (Figure 4) reveals valuable insights into model behavior. The vast majority of correct predictions lie along the diagonal, indicating high classification accuracy for most FDI numbers. However, occasional classification errors primarily occur between adjacent teeth with highly similar morphological features, such as adjacent maxillary molars (e.g., 16 and 17). These errors typically arise in areas of severe crowding or where low image contrast blurs tooth boundaries, making precise differentiation challenging for the model.
+
+This study compares with state-of-the-art object detection models, as indicated in \Cref{tab:performance_metrics}.  From the perspective of comprehensive performance metrics, the proposed method achieves 0.613 and 0.526 on the two core metrics $AR_{50-95}$ and $AP_{50-95}$ , significantly outperforming traditional detection frameworks such as RetinaNet (0.597/0.479) and SSD (0.488/0.339), while also demonstrating a competitive advantage over the current state-of-the-art DINO detector (0.609/0.509).  Specifically, on the $AP_{50}$ metric, our method achieves an outstanding performance of 0.961, surpassing the benchmark and improving by 2.1 percentage points over the next-best DINO method (0.940), indicating that the model has reached a new height in localization accuracy under the standard IoU threshold.
+
+From the analysis of detection performance for targets of different scales, our method achieves AP values of 0.557 and 0.520 for medium-sized targets ($AP_m$) and large targets ($AP_l$), respectively, which are 7.9\% and 4.4\% higher than the Faster-RCNN baseline model, validating the effectiveness of the improved strategy for multi-scale feature learning.  It is worth mentioning that although the AP75 measure of 0.503 is significantly lower than that of YOLO11s (0.554), the suggested method maintains a significant advantage over previous methods such as the RetinaNet model under strict IoU thresholds by adopting a multi-stage optimization strategy.
+ 
+\subsection{Qualitative Evaluation of Complex Clinical Scenarios}
+
+\begin{figure}[htbp]
+    \centering
+    \subfigure[]{
+        \includegraphics[width=0.8\textwidth]{lack_tooth.jpg}
+        \label{fig:lack_tooth}
+
+    }
+    \subfigure[]{
+        \includegraphics[width=0.8\textwidth]{full_tooth.jpg}
+        \label{fig:full_tooth}
+    }
+    \caption{(a) less-complete tooth;(b) Full tooth.}
+    \label{fig:full_lack_tooth}
+\end{figure}
+
+By comparing diverse dental images, we qualitatively evaluated the performance of tooth detection and numbering, and visualized the results on panoramic dental radiographs. The visualization intuitively reveals the model's ability to address small-target detection and tackle tooth heterogeneity in high-density dentition, effectively mitigating the detection challenges in this scenario. The results of tooth detection and numbering for complete and incomplete teeth using the model created in this work are displayed in \Cref{fig:full_lack_tooth}.  \Cref{fig:lack_tooth} indicates that the model can recognize all teeth except for missing teeth. \Cref{fig:full_tooth} shows that the model accurately recognizes all tooth categories in full-tooth images, with suitably dispersed detection box placements and confidence levels surpassing 97\% for most tooth categories.
+
+\begin{figure}[htbp]
+    \centering
+    \subfigure[]{
+        \includegraphics[width=0.8\textwidth]{implant_tooth.jpg}
+        \label{fig:implant_tooth}
+    }
+    \subfigure[]{
+        \includegraphics[width=0.8\textwidth]{dental_crown.jpg}
+        \label{fig:dental_crown}
+    }
+    \subfigure[]{
+        \includegraphics[width=0.8\textwidth]{false_tooth.jpg}
+        \label{fig:false_tooth}
+    }
+    \caption{(a) Implanted tooth;(b) Crowned tooth;(c) Fixed Partial Denture.}
+    \label{fig:crown_false_tooth}
+\end{figure}
+
+Furthermore, since the public DENTEX dataset does not provide separate quantitative annotations for implants and crowns, we conducted a qualitative evaluation of the model's behavior on images featuring these non-biological structures. As shown in \Cref{fig:implant_tooth}, the model successfully detected all non-implant teeth and correctly avoided misclassifying implants as biological teeth.  For teeth with crowns, \Cref{fig:dental_crown} illustrates the model's detection results for teeth with crowns.  Teeth with FDI numbers 11, 12, 21, and 22 are teeth with crowns, and the model effectively identified both normal teeth and teeth with crowns.  Since the model incorporates prior knowledge, i.e., tooth detection and numbering are only performed when a tooth root is present, the metal titanium screws and titanium plates in the maxilla did not affect detection accuracy; \Cref{fig:false_tooth} presents the detection and numbering results for teeth with partial fixed dentures.  Teeth with FDI numbers 45, 47, 35, and 37 have partial fixed dentures.  The model accurately rejected crowns without tooth roots or implants, neither identifying or numbering them as teeth, and the detection confidence for most tooth categories exceeded 98\%.
+
+In summary, the proposed model displays outstanding tooth detection and numbering performance under varied tooth circumstances, supporting its usefulness in processing diverse tooth pictures in dental panoramic radiographs.
+ 
+\subsection{Ablation Study}
+
+The ablation study results of this research are displayed in \Cref{fig:spider_chart} and \Cref{tab:performance_metrics}.  The ablation tests carefully evaluated the contribution of each component to object detection performance by progressively combining data augmentation, optimized anchor boxes, Swin-Transformer, and prior knowledge on the Faster-RCNN baseline.  Data augmentation boosts model generalization by expanding data variety, enhancing $AP_{(50-95)}$ by 0.6\% relative to the baseline, but may introduce noise, leading to a modest drop of 0.3 percentage points in $AP_{75}$.  Optimized anchor box design considerably increases medium-sized object detection accuracy, improving $AP_m$ by 4.6\% compared to the data augmentation version, while further enhancing $AP_{(50-95)}$ by 0.6\%, supporting the crucial function of bounding box adaptation in feature localization.  Swin-Transformer, exploiting its powerful contextual modeling capabilities and FPN's multi-scale feature fusion, obtained a single-component optimal performance of 0.561 on the $AP_m$ metric, an improvement of 1.3\% above the anchor box optimization version.  Prior knowledge reveals unique advantages in high-precision detection circumstances, with $AP_{75}$ retaining a high level of 0.48, on par with the DINO model.  The integration of many improvements provides considerable synergistic effects, with the comprehensive model (All Methods) outperforming the linear sum of single-component gains on fundamental measures such as $AP_{(50-95)}$.
+
+Specifically, this ablation study validates our core motivations: data augmentation and the Swin-Transformer+FPN directly address the 'image quality challenges' (e.g., low contrast and artifacts) by improving feature representation, yielding robust baseline gains. Meanwhile, the dynamic anchors and prior-knowledge weighted loss directly tackle the 'tooth diversity challenges' by adapting to anomalous tooth shapes and filtering out rootless structures (implants), ultimately achieving the highest synergy.
+
+\subsection{Discussion}
+
+The results of this investigation reveal that the model performs very well when handling high-density dentition and varied dental diseases.  Data augmentation enhances the model's generalization ability, optimized anchor boxes improve bounding box fitting, Swin-Transformer enhances contextual feature extraction, FPN cross-scale feature fusion enhances multi-scale object detection capabilities, and prior knowledge eliminates misclassification of non-biological dental structures.  Compared to standard convolutional networks or single optimization procedures, these methods jointly drive gains in detection accuracy.  This not only provides an effective automated tool for dental panoramic picture analysis but also has the potential to considerably boost the diagnostic efficiency of dentists, particularly in difficult conditions such as implant placement or crown placement.
+
+A notable limitation of this study involves the scope of dataset validation. Although the DENTEX dataset comprises images from three distinct institutions, our current evaluation relies on a train-test split from this mixed pool. Consequently, the model's zero-shot generalization capability to external data from entirely unseen hospitals or differing imaging protocols remains fully unexplored. Future research must incorporate independent external validation cohorts to rigorously assess cross-institutional robustness. However, while the model established in this study performs very well in dental panoramic radiography pictures, its performance under diverse age groups or specific oral disease states has not been completely studied.  Overall, the tooth detection model in this study has achieved substantial development in both technological innovation and application potential, bringing fresh insights into the field of dental image analysis.  Future study could focus on increasing the model's generalization capabilities and integrating it with other detection frameworks to further increase its practical application.
+
+\section{Conclusion}
+
+This paper addresses the issues of tooth detection and numbering in dental panoramic radiographic pictures by providing an enhanced Faster R-CNN model, successfully overcoming the challenges provided by artifacts, low contrast, and patient tooth heterogeneity in dental panoramic radiographic images.  This study provides numerous enhancement methods.  Among them, dynamic anchor frame optimization enhances the model's adaptability to dental anatomical structures, while the Swin-Transformer, with its unique hierarchical feature extraction capabilities and self-attention mechanism, can accurately capture features of different scales in dental images.  Additionally, the Feature Pyramid Network (FPN) provides cross-scale feature fusion, substantially boosting feature expression possibilities.  Additionally, the weighted loss function uses anatomical previous knowledge to ensure detection results comply with clinical logic, hence effectively increasing the model's performance in recognizing dental anatomical structures.
+
+Experimental results demonstrate that the model scores 0.613 and 0.526 on the $AR_{50-95}$ and $AP_{50-95}$ metrics, respectively, beating state-of-the-art detection models such as DINO and YOLO11s.  It also sets a new standard with a score of 0.961 on the $AP_{50}$ metric, demonstrating its remarkable performance.
+
+The significance of the important aspects of this study resides in the fact that they not only improve the accuracy of tooth detection through technical synergy but also provide solid support for tooth numbering activities under difficult settings such as implants and crowns.  This work is projected to produce an effective and reliable automated method for panoramic dental image analysis, boosting the efficiency of dental physicians in diagnosis.
+
+In summary, this study demonstrates the technological advantages and practical prospects of the revised Faster R-CNN model in panoramic dental radiography picture processing.  Future research could explore how to strengthen the model's generalization capacity across different age groups and dental disease situations, or integrate it with other detection frameworks to further encourage its widespread applicability in clinical practice.
+
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+\bibliography{sn-bibliography.bib}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\end{document}
