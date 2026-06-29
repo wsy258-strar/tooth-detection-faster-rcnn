@@ -19,7 +19,7 @@ Our method improves Faster R-CNN with four key components—hybrid data augmenta
 - [Visualization & Analysis](#visualization--analysis)
 - [Experimental Results](#experimental-results)
 - [Project Structure](#project-structure)
-- [Files to Upload to GitHub](#files-to-upload-to-github)
+- [Repository Contents](#repository-contents)
 - [License & Citation](#license--citation)
 
 ---
@@ -60,7 +60,7 @@ pip install torch==2.1.0 torchvision==0.16.0 --index-url https://download.pytorc
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/mmdetection.git
+git clone https://github.com/wsy258-strar/tooth-detection-faster-rcnn.git
 cd mmdetection
 ```
 
@@ -70,8 +70,6 @@ cd mmdetection
 pip install mmengine
 pip install mmcv>=2.1.0 -f https://download.openmmlab.com/mmcv/dist/cu121/torch2.1/index.html
 ```
-
-> **Note**: If you encounter issues with the pre-built MMCV wheel, a compatible `mmcv-2.1.0-cp38-cp38-manylinux1_x86_64.whl` is provided in the repository root.
 
 ### 3. Install MMDetection
 
@@ -374,48 +372,23 @@ mmdetection/
 
 ---
 
-## Files to Upload to GitHub
+## Repository Contents
 
-### ✅ Should be uploaded
+This repository contains only the core code needed to reproduce our experiments. Large files (datasets, model weights, training outputs) are excluded via `.gitignore` and must be obtained separately.
 
-| File / Directory | Description |
+| Directory / File | Description |
 |---|---|
-| `configs/DETEX/` (all `.py` files) | All model configuration files — **core contribution** |
+| `configs/DETEX/` | All model configurations — **core contribution** |
 | `configs/DETEX/divide_data.ipynb` | Data splitting and FDI label conversion notebook |
-| `mmdet/` (entire directory) | Modified MMDetection library (losses, backbones, detectors, etc.) |
-| `tools/` (entire directory) | Training, testing, and analysis scripts |
-| `requirements/` | Split dependency files |
-| `requirements.txt` | Top-level requirements pointer |
+| `mmdet/` | Modified MMDetection library (losses, backbones, detectors) |
+| `tools/` | Training, testing, and analysis scripts |
+| `requirements/`, `requirements.txt` | Python dependencies |
 | `setup.py`, `setup.cfg`, `MANIFEST.in` | Package installation |
-| `README.md` | Project documentation (this file) |
-| `.gitignore` | Git ignore rules (already configured) |
-| `run.md` | Quick-reference commands for training/testing |
+| `README.md` | Project documentation |
 | `CITATION.cff` | Citation metadata |
-| `LICENSE` | License file |
+| `LICENSE` | Apache 2.0 License |
 
-### ❌ Should NOT be uploaded (in `.gitignore`)
-
-| File / Directory | Reason |
-|---|---|
-| `data/` | Dataset files (large, contains medical data) |
-| `work_dirs/` | Training outputs & checkpoints (very large, >10 GB) |
-| `pre-trained-models/` | Pre-trained backbone weights (large) |
-| `checkpoints/` | Cached model checkpoints (large) |
-| `outputs/` | Inference output images |
-| `error-results/` | Error visualization outputs |
-| `show_data/` | Dataset visualization outputs |
-| `*.pth`, `*.pkl` | Model weights & serialized test results |
-| `*.whl` | Pre-built wheel packages |
-| `mmdet/.mim/` | MIM package manager symlinks |
-| `.ipynb_checkpoints/` | Jupyter notebook checkpoints |
-| `*.aux`, `*.log`, `*.out` | LaTeX build artifacts |
-| `__pycache__/`, `*.pyc` | Python bytecode |
-| `mmdet.egg-info/` | Build artifacts |
-| `acc.jpg`, `bbox_mAP.jpg`, `losses.jpg` | Generated plot images |
-| `confusion_matrix.jpg`, `losses.pdf` | Generated result images |
-| `test.pkl` | Serialized test results |
-
-> **Note**: The `.gitignore` file is already configured with all these exclusions. If you initialized a git repository in this directory before the `.gitignore` existed, make sure to run `git rm --cached` for any files that are already tracked but should be ignored.
+**Not included** (must be downloaded separately): DENTEX dataset, pre-trained backbone weights, trained model checkpoints, training outputs.
 
 ---
 
